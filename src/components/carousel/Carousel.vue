@@ -1,6 +1,8 @@
 <template>
-  <div>
+  <div class="carousel">
     <slot></slot>
+    <button class="carousel__nav carousel__next" @click.prevent="next">></button>
+    <button class="carousel__nav" @click.prevent="prev"><</button>
   </div>
 </template>
 
@@ -9,7 +11,8 @@ export default {
   data() {
     return {
       index: 0,
-      slides: []
+      slides: [],
+      direction: null
     };
   },
   mounted() {
@@ -17,6 +20,50 @@ export default {
     this.slides.forEach((slide, i) => {
       slide.index = i;
     });
+  },
+  computed: {
+    slidesCount() {
+      return this.slides.length;
+    }
+  },
+  methods: {
+    next() {
+      this.index++;
+      this.direction = "right";
+      if (this.index >= this.slidesCount) {
+        this.index = 0;
+      }
+    },
+    prev() {
+      this.index--;
+      this.direction = "left";
+      if (this.index < 0) {
+        this.index = this.slidesCount - 1;
+      }
+    }
   }
 };
 </script>
+
+
+<style>
+.carousel {
+  position: relative;
+}
+
+.carousel__nav {
+  position: absolute;
+  top: 50%;
+  margin-top: -31px;
+  left: 10px;
+  width: 63px;
+  height: 63px;
+  color: aliceblue;
+  background-color: grey;
+}
+
+.carousel__nav.carousel__next {
+  right: 10px;
+  left: auto;
+}
+</style>

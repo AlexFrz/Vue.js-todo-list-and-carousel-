@@ -1,8 +1,20 @@
 <template>
   <div id="app">
     <carousel>
-      <carousel-slide>Salut les gens</carousel-slide>
-      <carousel-slide>Aurevoir les gens</carousel-slide>
+      <carousel-slide>
+        <div
+          style="position:absolute; left:0; right:0; text-align:center; top:50%; color:#FFF; font-size:16px;"
+        >Au revoir les gens</div>
+        <img src="https://picsum.photos/630/300?grayscale
+" width="100%" />
+      </carousel-slide>
+      <carousel-slide>
+        <div
+          style="position:absolute; left:0; right:0; text-align:center; top:50%; color:#FFF; font-size:16px;"
+        >Au revoir les gens</div>
+        <img src="https://picsum.photos/630/300?grayscale
+" width="100%" />
+      </carousel-slide>
     </carousel>
     <todos></todos>
   </div>
