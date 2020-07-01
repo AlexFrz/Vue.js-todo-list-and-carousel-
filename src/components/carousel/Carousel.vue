@@ -1,7 +1,22 @@
 <template>
-  <div></div>
+  <div>
+    <slot></slot>
+  </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      index: 0,
+      slides: []
+    };
+  },
+  mounted() {
+    this.slides = this.$children;
+    this.slides.forEach((slide, i) => {
+      slide.index = i;
+    });
+  }
+};
 </script>

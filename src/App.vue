@@ -11,7 +11,7 @@
 <script>
 import Todos from "./components/Todos";
 import Carousel from "./components/carousel/Carousel";
-import Carousel from "./components/carousel/CarouselSlide";
+import CarouselSlide from "./components/carousel/CarouselSlide";
 
 export default {
   components: {
