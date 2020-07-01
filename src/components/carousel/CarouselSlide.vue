@@ -1,7 +1,6 @@
 <template>
   <transition :name="transition">
     <div v-show="visible">
-      Index: {{ index }}
       <slot></slot>
     </div>
   </transition>
@@ -9,10 +8,8 @@
 
 <script>
 export default {
-  data() {
-    return {
-      index: 0
-    };
+  props: {
+    index: { type: Number, default: 0 }
   },
   computed: {
     transition() {
@@ -27,11 +24,11 @@ export default {
 
 <style>
 .slide-right-enter-active {
-  animation: slideRightIn 5s;
+  animation: slideRightIn 0.5s;
 }
 
 .slide-right-leave-active {
-  animation: slideRightOut 5s;
+  animation: slideRightOut 0.5s;
   position: absolute;
   top: 0;
   left: 0;
@@ -59,11 +56,11 @@ export default {
 }
 
 .slide-left-enter-active {
-  animation: slideLeftIn 5s;
+  animation: slideLeftIn 0.5s;
 }
 
 .slide-left-leave-active {
-  animation: slideLeftOut 5s;
+  animation: slideLeftOut 0.5s;
   position: absolute;
   top: 0;
   left: 0;
